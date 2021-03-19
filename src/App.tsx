@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 
 import { GlobalStyle } from "./styles/global";
 import { NewTransactionModal } from "./components/NewTransactionModal";
+import { TransationsProvider } from "./hooks/useTransactions";
 
 Modal.setAppElement('#root');
 
@@ -20,7 +21,8 @@ export function App() {
   }
 
   return (
-    <>
+    <TransationsProvider>
+      
       <Header onOpenNemTransactionModal={handleOpenTransactionModal}/>
 
       <Dashboard />
@@ -31,6 +33,6 @@ export function App() {
       />
       
       <GlobalStyle />
-    </>
+    </TransationsProvider>
   );
-};
+}
